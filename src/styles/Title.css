@@ -1,0 +1,21 @@
+.title span.first {
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  
+  .title span.second {
+    font-size: larger;
+  }
+  
+  .title span:not(:first-child) {
+    border-right: 1px solid #000;
+  }
+  
+  p{
+    padding:10px 0;
+    margin:0;
+  }
+  
+  span{
+    padding:0 10px;
+  }
