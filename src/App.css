@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  direction: rtl;
+  padding: 1cm;
 }
 
 .App-logo {
@@ -28,6 +30,28 @@
   color: #61dafb;
 }
 
+.title span.first {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.title span.second {
+  font-size: larger;
+}
+
+.title span:not(:first-child) {
+  border-right: 1px solid #000;
+}
+
+p{
+  padding:10px 0;
+  margin:0;
+}
+
+span{
+  padding:0 10px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +59,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.topnav {
+  padding: 20px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav a {
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 15%;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #ffc000;
+  font-weight: bold;
 }

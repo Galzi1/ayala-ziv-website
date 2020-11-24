@@ -13,12 +13,25 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <p className="title">
+        <span className="first">אילה זיו</span>
+        <span className="first">Ayala Ziv</span>
+      </p>
+      <p className="title">
+        <span className="second">צ'לנית וזמרת</span>
+        <span className="second">Cellist and Singer</span>
+      </p>
 
-        ... no changes in this part ...
-
+      <div class="topnav">
+        <a class="active" href="/about">אודות</a>
+        <a href="/shows">הופעות</a>
+        <a href="/media">מדיה</a>
+        <a href="/contact">צרו קשר</a>
+      </div>
+      
+      {/* <header className="App-header">
         <p>The current time is {currentTime}.</p>
-      </header>
+      </header> */}
     </div>
   );
 }
