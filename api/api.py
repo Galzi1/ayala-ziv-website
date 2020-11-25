@@ -1,7 +1,11 @@
 import time
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/api/about')
 def get_about():
@@ -23,4 +27,9 @@ def get_media():
 def get_contact_details():
     return {'facebook': 'https://www.facebook.com/AyalaZiv3'}
 
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
 
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
