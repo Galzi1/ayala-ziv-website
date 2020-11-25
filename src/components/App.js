@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {Route, BrowserRouter, Redirect} from "react-router-dom";
+import {Route, BrowserRouter, Redirect, useRouteMatch, NavLink} from "react-router-dom";
 import logo from '../resources/logo.svg';
 import '../styles/App.css';
+import '../styles/TopNavBar.css';
 import Title from './Title';
 import TopNavBar from './TopNavBar';
 import About from './About';
@@ -22,37 +23,31 @@ function App() {
   return (
     <div className="App">
       <Title/>
-      <TopNavBar currentRoute={currentRoute}/>
+      {/* <TopNavBar currentRoute={currentRoute}/> */}
       <BrowserRouter basename="/">
+        <div className="topnav">
+            <NavLink to="/about" activeClassName="active">אודות</NavLink>
+            <NavLink to="/shows" activeClassName="active">הופעות</NavLink>
+            <NavLink to="/media" activeClassName="active">מדיה</NavLink>
+            <NavLink to="/contact" activeClassName="active">צרו קשר</NavLink>
+        </div>
         <Route exact path="/" render={
           () => {
             return <Redirect to="/about"/>
           }
         }></Route>
-        <Route exact path="/about" render={
-          () => {
-            setCurrentRoute("/about");
-            return <About/>
-          }
-        }></Route>
-        <Route exact path="/shows" render={
-          () => {
-            setCurrentRoute("/shows");
-            return <Shows/>
-          }
-        }></Route>
-        <Route exact path="/media" render={
-          () => {
-            setCurrentRoute("/media");
-            return <Media/>
-          }
-        }></Route>
-        <Route exact path="/contact" render={
-          () => {
-            setCurrentRoute("/contact");
-            return <Contact/>
-          }
-        }></Route>
+        <Route exact path="/about">
+          <About/>
+        </Route>
+        <Route exact path="/shows">
+          <Shows/>
+        </Route>
+        <Route exact path="/media">
+          <Media/>
+        </Route>
+        <Route exact path="/contact">
+          <Contact/>
+        </Route>
       </BrowserRouter>
       {/* <header className="App-header">
         <p>The current time is {currentTime}.</p>
