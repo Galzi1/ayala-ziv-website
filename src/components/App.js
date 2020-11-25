@@ -11,14 +11,7 @@ import Media from './Media';
 import Contact from './Contact';
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
   const [currentRoute, setCurrentRoute] = useState("/");
-
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
 
   return (
     <div className="App">
@@ -49,9 +42,6 @@ function App() {
           <Contact/>
         </Route>
       </BrowserRouter>
-      {/* <header className="App-header">
-        <p>The current time is {currentTime}.</p>
-      </header> */}
     </div>
   );
 }
